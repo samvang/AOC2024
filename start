@@ -5,8 +5,18 @@ D=$1
 NAME="${D}.py"
 INAME="${D}.in"
 
-curl "https://adventofcode.com/${Y}/day/${D}/input" -H "cookie: session=$(<cookiekey.txt)" -o ${INAME}
-cp template.py ${NAME}
+if [ -f $INAME ]; then
+   echo "File $INAME already exists, not downloading again."
+else
+    curl "https://adventofcode.com/${Y}/day/${D}/input" -H "cookie: session=$(<cookiekey.txt)" -o ${INAME}
+fi
+
+if [ -f $NAME ]; then
+   echo "File $NAME already exists, not overwriting with template."
+else
+   cp template.py ${NAME}
+fi
+
 google-chrome https://adventofcode.com/${Y}/day/${D} &
 stopwatch
 
