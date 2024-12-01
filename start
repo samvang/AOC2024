@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+Y="2024"
+D=$1
+NAME="${D}.py"
+INAME="${D}.in"
+
+curl "https://adventofcode.com/${Y}/day/${D}/input" -H "cookie: session=$(<cookiekey.txt)" -o ${INAME}
+cp template.py ${NAME}
+google-chrome https://adventofcode.com/${Y}/day/${D} &
+stopwatch
+
