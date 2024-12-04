@@ -1,3 +1,4 @@
 cookiekey.txt
 __pycache__/
 *.in
+*.test

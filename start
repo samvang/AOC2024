@@ -5,11 +5,7 @@ D=$1
 NAME="${D}.py"
 INAME="${D}.in"
 
-if [ -f $INAME ]; then
-   echo "File $INAME already exists, not downloading again."
-else
-    curl "https://adventofcode.com/${Y}/day/${D}/input" -H "cookie: session=$(<cookiekey.txt)" -o ${INAME}
-fi
+curl "https://adventofcode.com/${Y}/day/${D}/input" -H "cookie: session=$(<cookiekey.txt)" -o ${INAME}
 
 if [ -f $NAME ]; then
    echo "File $NAME already exists, not overwriting with template."

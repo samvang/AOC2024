@@ -1,4 +1,11 @@
 import sys
+from collections import defaultdict, Counter
+sys.setrecursionlimit(10**6)
+import pyperclip as pc
+
+def pr(s):
+    print(s)
+    pc.copy(s)
 
 if len(sys.argv) > 1:
     filename = sys.argv[1]
