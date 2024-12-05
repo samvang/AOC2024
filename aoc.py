@@ -1,5 +1,4 @@
 import sys
-from collections import defaultdict, Counter
 sys.setrecursionlimit(10**6)
 import pyperclip as pc
 
