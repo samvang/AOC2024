@@ -99,3 +99,5 @@ def checksum2(size,gap):
 p1 = checksum2(size,gap)
 pr(p1)
 # 22:53
+
+# stopped working on part 2 after 30:00
