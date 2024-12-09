@@ -25,7 +25,6 @@ def show(size,gap):
     s = s + str(n-1) * size[n-1]
     return s
 
-# print(show(size,gap))
 def checksum(size,gap):
     tot = 0
     pos = 0
@@ -55,48 +54,7 @@ def checksum(size,gap):
     print()
     return tot
 
-def checksum2(size,gap):
-    tot = 0
-    pos = 0
-    ptr1 = 0 # fileid of current file from left
-    rightmost = len(size) - 1 # pointer from right
-    
-    while ptr1 < rightmost:
-        s = size[ptr1]
-        for _ in range(s):
-            tot += pos * ptr1
-            print(ptr1, end="")
-            pos += 1
-        
-        g = gap[ptr1]
-        
-        while g > 0:
-            ptr2 = rightmost
-            while size[ptr2] > g and ptr2 >= ptr1:
-                ptr2 -= 1
-            if ptr2 < ptr1:
-                break
-            if ptr2 == rightmost:
-                rightmost -= 1
-            g -= size[ptr2]
-            
-            # move entire file to gap
-            for _ in range(size[ptr2]):
-                print(ptr2,end="")
-                tot += pos * ptr2
-                pos += 1
-            size[ptr2] = 0
-        
-        ptr1 += 1
-
-    for _ in range(size[ptr1]):
-            tot += pos * ptr1
-            print(ptr1, end="")
-            pos += 1
-    print()
-    return tot
-
-p1 = checksum2(size,gap)
+p1 = checksum(size,gap)
 pr(p1)
 # 22:53
 
